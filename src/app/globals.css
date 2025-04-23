@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;         /* default background color */
+  --foreground: #171717;         /* default text color */
+  --theme-color: #ff9800;        /* vibrant orange for theme */
+  --theme-text: #fff8e1;         /* creamy white for text */
+  --highlight: #ffd54f;          /* highlight color */
+}
+
+/* Tailwind Theme Inline Extension */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* 🌙 Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;       /* dark background */
+    --foreground: #e6ffee;       /* soft light text */
+    --theme-color: #ff5722;       /* deep orange */
+    --theme-text: #fff8e1;        /* creamy white text */
+  }
+}
+
+/* Body Base Style */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* Scrollbar for WebKit Browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-text);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--foreground);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Buttons and Links - Hover Effects */
+button, a {
+  transition: all 0.3s ease;
+}
+
+button:hover, a:hover {
+  background-color: var(--foreground);
+  color: var(--background);
+  transform: scale(1.05);
+}
+
+/* Shadows for Depth */
+section, .card, .container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+section:hover, .card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient Background for header */
+header {
+  background: linear-gradient(135deg, #ff9800, #ff5722); /* Orange gradient */
+}
+
+/* Sticky Navbar */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--background);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations for Sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to section elements */
+section {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Add a slight delay for each section */
+section:nth-child(1) {
+  animation-delay: 0.3s;
+}
+section:nth-child(2) {
+  animation-delay: 0.6s;
+}
+section:nth-child(3) {
+  animation-delay: 0.9s;
+}
