@@ -6,6 +6,7 @@ export default function Header() {
   const [show, setShow] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     let lastScrollY = 0;
@@ -28,7 +29,7 @@ export default function Header() {
       lastScrollY = window.scrollY;
 
       // Determine active section based on scroll position
-      const sections = ["home", "skills", "portfolio", "contact"];
+      const sections = ["home", "skills", "contact"];
       const scrollPosition = window.scrollY + 300;
 
       for (const section of sections) {
@@ -52,7 +53,6 @@ export default function Header() {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Skills", href: "#skills" },
-    { name: "Portfolio", href: "#portfolio" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -61,7 +61,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: show ? 0 : -100 }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
-      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 px-6 py-1 flex justify-between items-center transition-all duration-300 ${
         isScrolled
           ? "bg-orange-500 shadow-lg backdrop-blur-sm"
           : "bg-gradient-to-r from-orange-500 to-orange-600 bg-opacity-90"
@@ -76,7 +76,7 @@ export default function Header() {
         <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
           <span className="text-orange-500 font-bold text-lg">BK</span>
         </div>
-        <h1 className="text-2xl font-bold text-white hover:text-orange-100 transition duration-300 ease-in-out">
+        <h1 className="text-base font-bold text-white hover:text-orange-100 transition duration-300 ease-in-out">
           Bipin Karki
         </h1>
       </motion.div>
@@ -85,7 +85,7 @@ export default function Header() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="hidden md:flex items-center space-x-1"
+        className={`md:flex items-center space-x-1 ${isMobileMenuOpen ? "flex-col absolute top-16 left-0 w-full bg-gradient-to-r from-orange-500 to-orange-600" : "hidden"}`}
       >
         {navItems.map((item, index) => (
           <motion.a
@@ -94,7 +94,7 @@ export default function Header() {
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 * index + 0.3, duration: 0.5 }}
-            className={`relative px-4 py-2 text-white font-medium hover:text-orange-100 transition-all duration-300 ease-in-out ${
+            className={`relative px-4 py-2 text-white font-medium hover:text-orange-100 transition-all duration-300 ease-in-out hover:rounded-2xl  ${
               activeSection === item.href.substring(1) ? "font-bold" : ""
             }`}
           >
@@ -116,7 +116,10 @@ export default function Header() {
         transition={{ duration: 0.5 }}
         className="md:hidden flex items-center"
       >
-        <button className="text-white p-2 focus:outline-none">
+        <button
+          className="text-white p-2 focus:outline-none"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           <svg
             className="w-6 h-6"
             fill="none"
@@ -132,21 +135,6 @@ export default function Header() {
             />
           </svg>
         </button>
-      </motion.div>
-
-      {/* Contact button on desktop */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        className="hidden md:block"
-      >
-        <a
-          href="#contact"
-          className="px-4 py-2 bg-white text-orange-500 rounded-full font-medium hover:bg-orange-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
-        >
-          Get in Touch
-        </a>
       </motion.div>
     </motion.header>
   );

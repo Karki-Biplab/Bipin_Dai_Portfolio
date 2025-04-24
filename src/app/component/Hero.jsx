@@ -48,7 +48,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Content container */}
-      <div className="relative z-10 max-w-4xl">
+      <div className="relative z-0 max-w-4xl">
         <motion.div
           className="mb-6"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -80,13 +80,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="mt-4 text-2xl sm:text-3xl text-white font-medium tracking-wide"
+          className="mt-4 text-2xl sm:text-3xl text-white font-medium tracking-wide max-w-2xl mx-auto"
         >
           <span className="opacity-90">Wholesaler</span>
           <span className="mx-3 inline-block">•</span>
           <span className="opacity-90">Entrepreneur</span>
           <span className="mx-3 inline-block">•</span>
-          <span className="opacity-90">Owner of Pappu Auto Parts</span>
+          <span className="opacity-90 ">Owner of Pappu Auto Parts</span>
         </motion.h2>
 
         <motion.p
@@ -113,15 +113,6 @@ export default function Hero() {
             className="px-8 py-4 bg-white text-orange-600 font-bold rounded-full shadow-2xl hover:bg-orange-50 transition-all duration-300"
           >
             Get In Touch
-          </motion.a>
-          
-          <motion.a
-            href="#portfolio"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full shadow-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300"
-          >
-            View Portfolio
           </motion.a>
         </motion.div>
       </div>
