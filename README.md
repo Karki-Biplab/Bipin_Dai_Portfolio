@@ -1,6 +1,6 @@
 # 🌟 Bipin Karki - Personal Website
 
-This is the personal website for **Bipin Karki**, built with **Next.js** and styled with [your CSS framework if any, like Tailwind CSS].
+This is the personal website for **Bipin Karki**, built with **Next.js** and styled with Tailwind CSS.
 
 ## 🚀 Project Overview
 
@@ -16,7 +16,7 @@ The goal of this project is to create a clean, modern, and fully responsive pers
 
 - Next.js ⚛️
 - React.js
-- [Tailwind CSS / CSS Modules / Styled Components] (Mention depending what you used)
+- Tailwind CSS
 - Vercel (for deployment)
 
 ## 🎯 Status
@@ -30,4 +30,4 @@ This is a **personal project** done by [Your Name] as part of portfolio and free
 
 ---
 
-> Designed and developed with ❤️ by [Your Name]
+> Designed and developed with ❤️ by K.nomem13
